@@ -39,13 +39,13 @@ public class ExcelUtil {
 
     /**
 
-     * 读取Excel的内容，第一维数组存储的是一行中格列的值，二维数组存储的是多少个行
+     * 璇诲彇Excel鐨勫唴瀹癸紝绗竴缁存暟缁勫瓨鍌ㄧ殑鏄竴琛屼腑鏍煎垪鐨勫�硷紝浜岀淮鏁扮粍瀛樺偍鐨勬槸澶氬皯涓
 
-     * @param file 读取数据的源Excel
+     * @param file 璇诲彇鏁版嵁鐨勬簮Excel
 
-     * @param ignoreRows 读取数据忽略的行数，比喻行头不需要读入 忽略的行数为1
+     * @param ignoreRows 璇诲彇鏁版嵁蹇界暐鐨勮鏁帮紝姣斿柣琛屽ご涓嶉渶瑕佽鍏� 蹇界暐鐨勮鏁颁负1
 
-     * @return 读出的Excel中数据的内容
+     * @return 璇诲嚭鐨凟xcel涓暟鎹殑鍐呭
 
      * @throws FileNotFoundException
 
@@ -67,7 +67,7 @@ public class ExcelUtil {
 
               file));
 
-       // 打开HSSFWorkbook
+       // 鎵撳紑HSSFWorkbook
 
        POIFSFileSystem fs = new POIFSFileSystem(in);
 
@@ -83,7 +83,7 @@ public class ExcelUtil {
     	   
            HSSFSheet st = wb.getSheetAt(sheetIndex);
 
-           // 第一行为标题，不取
+           // 绗竴琛屼负鏍囬锛屼笉鍙�
 
            for (int rowIndex = ignoreRows; rowIndex <= st.getLastRowNum(); rowIndex++) {
 
@@ -117,7 +117,7 @@ public class ExcelUtil {
 
                   if (cell != null) {
 
-                     // 注意：一定要设成这个，否则可能会出现乱码
+                     // 娉ㄦ剰锛氫竴瀹氳璁炬垚杩欎釜锛屽惁鍒欏彲鑳戒細鍑虹幇涔辩爜
 
                      cell.setEncoding(HSSFCell.ENCODING_UTF_16);            
 
@@ -163,7 +163,7 @@ public class ExcelUtil {
 
                      case HSSFCell.CELL_TYPE_FORMULA:
 
-                         // 导入时如果为公式生成的数据则无值
+                         // 瀵煎叆鏃跺鏋滀负鍏紡鐢熸垚鐨勬暟鎹垯鏃犲��
 
                          if (!cell.getStringCellValue().equals("")) {
 
@@ -245,11 +245,11 @@ public class ExcelUtil {
 
     /**
 
-     * 去掉字符串右边的空格
+     * 鍘绘帀瀛楃涓插彸杈圭殑绌烘牸
 
-     * @param str 要处理的字符串
+     * @param str 瑕佸鐞嗙殑瀛楃涓�
 
-     * @return 处理后的字符串
+     * @return 澶勭悊鍚庣殑瀛楃涓�
 
      */
 

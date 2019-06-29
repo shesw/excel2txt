@@ -25,7 +25,6 @@ public class DataHandler {
 				for(int j=0;j<result[i].length;j++) {
 					String item = result[i][j];
 					System.out.println(item+"\t\t");
-					System.out.println(Pattern.matches(".*/.*/.*", item));
 					if (Pattern.matches(".*/.*/.*", item)) {
 						int firstIndex = item.indexOf("/");
 						int month = Integer.parseInt(item.substring(0, firstIndex));
@@ -41,10 +40,25 @@ public class DataHandler {
 							if (TextUtil.isEmpty(course) && setting.isTrim()) continue;
 							
 							bWriter.newLine();
-							bWriter.write(date + "\t\t"); //写日期
-							bWriter.write(time + "\t\t");	//写时刻
-							bWriter.write(course + "\t\t");	//写课程
-							bWriter.write(TextUtil.isEmpty(teacherName) ? "" : teacherName); //写老师名字
+							if (date.length() == 3) {
+								date = date + "  ";
+							} else if (date.length() == 4) {
+								date = date + " ";
+							}
+							bWriter.write(date + "        "); //鍐欐棩鏈�
+							if (time.length() == 9) {
+								time = " " + time + "  ";
+							} else if (time.length() == 10) {
+								time = " " + time + " ";
+							}
+							bWriter.write(time + "        ");	//鍐欐椂鍒�
+							if (course.length()==2) {
+								course = course + "   ";
+							} else if (course.length() == 3) {
+								course = course + "  ";
+							}
+							bWriter.write(course + "        ");	//鍐欒绋�
+							bWriter.write(TextUtil.isEmpty(teacherName) ? "" : teacherName); //鍐欒�佸笀鍚嶅瓧
 						}
 					}
 			    }
