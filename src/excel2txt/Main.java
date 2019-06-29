@@ -19,7 +19,6 @@ public class Main {
 		System.out.println("file path: " + file.getPath());
 		
 		System.out.println("teacher " + Setting.getInstance().getTeacher("﻿英语"));
-		System.out.println("teacher " + Setting.getInstance().getTeacher("英语"));
 		
 		System.out.println("teacher " + Setting.getInstance().getTeacher("物理"));
 		System.out.println("teacher " + Setting.getInstance().getTeacher("数学"));

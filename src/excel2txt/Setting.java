@@ -42,6 +42,7 @@ public class Setting {
 			try {
 				BufferedReader bufferedReader = new BufferedReader(new FileReader(filePath));
 				String line = "";
+				bufferedReader.readLine();
 				while ( ( line = bufferedReader.readLine() ) != null  ) {
 					String[] lines = line.split(" ");
 					if ("countPerDay".equals(lines[0])) {
