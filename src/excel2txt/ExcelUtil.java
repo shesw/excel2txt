@@ -152,9 +152,9 @@ public class ExcelUtil {
 
                                    .getNumericCellValue());
                             
-                            calendar.set(1900, 0, 0);
-                            calendar.add(Calendar.DAY_OF_MONTH, Integer.parseInt(value)-1);                  
-                            value = (calendar.get(Calendar.MONTH)+1) + "/" + calendar.get(Calendar.DAY_OF_MONTH) + "/" + calendar.get(Calendar.YEAR);        
+//                            calendar.set(1900, 0, 0);
+//                            calendar.add(Calendar.DAY_OF_MONTH, Integer.parseInt(value)-1);                  
+//                            value = (calendar.get(Calendar.MONTH)+1) + "/" + calendar.get(Calendar.DAY_OF_MONTH) + "/" + calendar.get(Calendar.YEAR);        
 
                          }
 

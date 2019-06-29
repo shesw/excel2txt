@@ -12,28 +12,16 @@ public class Main {
 		String[] paths = FileOpenUtil.openFileBrowser();
 		String directory = paths[0];
 		String fileName = paths[1];
-
 		File file = new File(directory + fileName);
+		
+		Setting setting = new Setting(directory);
 
 		System.out.println("file path: " + file.getPath());
 		
 		String[][] result = ExcelUtil.getData(file, 1);
 		
-		int rowLength = result.length;
-		
-		for(int i=0;i<rowLength;i++) {
-		
-			for(int j=0;j<result[i].length;j++) {
-				
-				System.out.print(result[i][j]+"\t\t");
-		
-		    }
-		
-			System.out.println();
-		
-		}
+		new DataHandler().print2Txt(result, directory, setting);
+
 	}
-	
-	
 	
 }
