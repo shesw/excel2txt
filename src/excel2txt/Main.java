@@ -14,13 +14,13 @@ public class Main {
 		String fileName = paths[1];
 		File file = new File(directory + fileName);
 		
-		Setting setting = new Setting(directory);
+		Setting.init(directory);
 
 		System.out.println("file path: " + file.getPath());
 		
 		String[][] result = ExcelUtil.getData(file, 1);
 		
-		new DataHandler().print2Txt(result, directory, setting);
+		new DataHandler().print2Txt(result, directory + fileName);
 
 	}
 	
