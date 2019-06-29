@@ -41,23 +41,23 @@ public class DataHandler {
 							
 							bWriter.newLine();
 							if (date.length() == 3) {
-								date = date + "  ";
+								date = date + "    ";
 							} else if (date.length() == 4) {
-								date = date + " ";
+								date = date + "  ";
 							}
-							bWriter.write(date + "        "); //鍐欐棩鏈�
+							bWriter.write(date + "            "); //鍐欐棩鏈�
 							if (time.length() == 9) {
-								time = " " + time + "  ";
+								time = "  " + time + "  ";
 							} else if (time.length() == 10) {
-								time = " " + time + " ";
+								time = "  " + time;
 							}
-							bWriter.write(time + "        ");	//鍐欐椂鍒�
+							bWriter.write(time + "            ");	//鍐欐椂鍒�
 							if (course.length()==2) {
-								course = course + "   ";
+								course = course + "     ";
 							} else if (course.length() == 3) {
 								course = course + "  ";
 							}
-							bWriter.write(course + "        ");	//鍐欒绋�
+							bWriter.write(course + "            ");	//鍐欒绋�
 							bWriter.write(TextUtil.isEmpty(teacherName) ? "" : teacherName); //鍐欒�佸笀鍚嶅瓧
 						}
 					}
