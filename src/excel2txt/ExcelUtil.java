@@ -19,10 +19,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.List;
-
-import javax.print.attribute.standard.MediaSize.NA;
 
 import org.apache.poi.hssf.usermodel.HSSFCell;
 
@@ -78,8 +75,12 @@ public class ExcelUtil {
 
        HSSFCell cell = null;
 
-       for (int sheetIndex = 0; sheetIndex < wb.getNumberOfSheets(); sheetIndex++) {
-
+       List<Integer> sheets = Setting.getInstance().getSheets();
+       
+       for (int index = 0; index < sheets.size(); index++) {
+    	   int sheetIndex = sheets.get(index)-1;
+    	   System.out.println("sheetIndex" + sheetIndex);
+    	   
            HSSFSheet st = wb.getSheetAt(sheetIndex);
 
            // 第一行为标题，不取
