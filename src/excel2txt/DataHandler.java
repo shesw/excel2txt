@@ -33,12 +33,17 @@ public class DataHandler {
 						int day = Integer.parseInt(item.substring(firstIndex+1, secondIndex));
 						
 						for (int k = 1; k <= setting.getCourseTimeCount(); k++) {
-							bWriter.newLine();
-							bWriter.write(month + "." + day + "\t"); //写日期
-							bWriter.write(result[i+k][0] + "\t");	//写时刻
-							bWriter.write(result[i+k][j] + "\t");	//写课程
+							String date = month + "." + day;
+							String time = result[i+k][0];
+							String course = result[i+k][j];
 							String teacherName = setting.getTeacher(result[i+k][j]);
-							System.out.println(result[i+k][j] + " " + teacherName);
+							
+							if (TextUtil.isEmpty(course) && setting.isTrim()) continue;
+							
+							bWriter.newLine();
+							bWriter.write(date + "\t\t"); //写日期
+							bWriter.write(time + "\t\t");	//写时刻
+							bWriter.write(course + "\t\t");	//写课程
 							bWriter.write(TextUtil.isEmpty(teacherName) ? "" : teacherName); //写老师名字
 						}
 					}

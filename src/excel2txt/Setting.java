@@ -31,6 +31,7 @@ public class Setting {
 		private Map<String, String> teacherCourseMap;
 		private int courseTimeCount = 5;
 		private List<Integer> sheets = new ArrayList<>();
+		private boolean isTrim = true;
 		
 		public void init (String path) {
 			String filePath = path + "setting.txt";
@@ -51,7 +52,10 @@ public class Setting {
 							System.out.println(lines[i]);
 							sheets.add(new Integer(lines[i]));
 						}
-					}  else {
+					} else if("trim".equals(lines[0])){
+						int trim = Integer.parseInt(lines[1]);
+						isTrim = !(trim == 0);
+					} else {
 						if (lines.length == 2) {
 							teacherCourseMap.put(lines[0], lines[1]);
 							System.out.println(lines[0]+ " " +lines[1]);
@@ -68,7 +72,19 @@ public class Setting {
 		
 		public String getTeacher(String course) {
 			if (TextUtil.isEmpty(course)) return "";
-			return teacherCourseMap.get(course);
+			String teacher = teacherCourseMap.get(course);
+			
+			if (TextUtil.isEmpty(teacher)) {
+				
+				for(Map.Entry<String, String> entry : teacherCourseMap.entrySet()) {
+					if (course.contains(entry.getKey())) {
+						teacher = entry.getValue();
+						break;
+					}
+				}
+			}
+			
+			return teacher;
 		}
 		
 		public int getCourseTimeCount() {
@@ -77,6 +93,10 @@ public class Setting {
 		
 		public List<Integer> getSheets() {
 			return sheets;
+		}
+		
+		public boolean isTrim() {
+			return isTrim;
 		}
 		
 	}
